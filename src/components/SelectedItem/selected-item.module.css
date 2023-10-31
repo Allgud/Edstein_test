@@ -1,0 +1,23 @@
+.item__wrapper {
+  display: flex;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: var(--black-100);
+  border-radius: 8px;
+}
+
+.item__text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+.close__icon {
+  width: 12px;
+  height: 12px;
+  fill: var(--black-primary);
+}
+
+.close__icon:hover {
+  fill: var(--black-color);
+}

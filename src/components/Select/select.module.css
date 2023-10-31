@@ -1,0 +1,28 @@
+.select__wrapper {
+  width: 100%;
+  border: 1px solid var(--black-300);
+  border-radius: 10px;
+  padding: 7px 10px 9px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected__list {
+  display: flex;
+  gap: 5px;
+}
+
+.arrow__icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--black-primary);
+}
+
+.arrow__icon:hover {
+  fill: var(--black-color);
+}
+
+.arrow__icon_rotated {
+  transform: rotate(180deg);
+}

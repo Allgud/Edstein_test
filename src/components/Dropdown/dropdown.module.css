@@ -1,0 +1,17 @@
+.dropdown__wrapper {
+  width: 400px;
+}
+
+.dropdown__top {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.top__title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}

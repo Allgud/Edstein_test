@@ -1,0 +1,27 @@
+:root {
+  --black-color: #000000;
+  --black-primary: #333333;
+  --black-300: #c1c1c1;
+  --black-100: #f4f4f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  font-family: "Inter";
+  color: var(--black-primary);
+}
+
+ul {
+  list-style: none;
+}
+
+svg:hover {
+  cursor: pointer;
+}
