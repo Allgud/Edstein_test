@@ -1,0 +1,23 @@
+.option__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px 12px 16px;
+  border-bottom: 1px solid var(--black-100);
+}
+
+.option__wrapper:last-child {
+  border-bottom: none;
+}
+
+.option__left {
+  display: flex;
+  gap: 8px;
+}
+
+.left__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
