@@ -17,12 +17,15 @@
   width: 16px;
   height: 16px;
   fill: var(--black-primary);
+  transform: rotate(180deg);
+  transition: transform 0.3s linear;
+}
+
+.arrow__icon_rotated {
+  transform: rotate(0deg);
+  transition: all 0.3s linear;
 }
 
 .arrow__icon:hover {
   fill: var(--black-color);
-}
-
-.arrow__icon_rotated {
-  transform: rotate(180deg);
 }

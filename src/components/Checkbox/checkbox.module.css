@@ -1,7 +1,14 @@
 .checkbox__label {
-  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  margin: 0.6em 1em;
+  position: relative;
+}
+
+.checkbox__label:hover {
+  background-color: var(--black-100);
 }
 
 .checkbox__input {
@@ -14,10 +21,23 @@
 .checkbox__indicator {
   width: 24px;
   height: 24px;
-  background: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
+  background-color: transparent;
   border: 2px solid var(--black-300);
   border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox__indicator_checked {
+  background-color: var(--edstein-primary-500);
+  border: 2px solid var(--edstein-primary-600);
+}
+
+.icon__defalt {
+  display: none;
+}
+
+.icon__visible {
+  display: block;
 }

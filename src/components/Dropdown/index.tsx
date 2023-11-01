@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Select from "../Select/index";
 import { useDropdown } from "../../hooks/useDropdown";
 import styles from "./dropdown.module.css";
@@ -12,7 +12,8 @@ const Dropdown = () => {
       <div className={styles.dropdown__top}>
         <h6 className={styles.top__title}>Язык</h6>
         <Select open={isOpen} openHandler={handleOpen} />
-        <DropdownList />
+        {isOpen && <DropdownList />}
+
       </div>
     </div>
   );
