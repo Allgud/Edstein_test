@@ -13,7 +13,6 @@ const Dropdown = () => {
         <h6 className={styles.top__title}>Язык</h6>
         <Select open={isOpen} openHandler={handleOpen} />
         {isOpen && <DropdownList />}
-
       </div>
     </div>
   );

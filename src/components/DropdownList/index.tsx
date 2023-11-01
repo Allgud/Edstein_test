@@ -5,12 +5,12 @@ import SearchInput from "../SearchInput/index";
 import styles from "./dropdownlist.module.css";
 
 const DropdownList = () => {
-  const { options } = useDropdownContext()
+  const { options, searchValue, handleSearch } = useDropdownContext()
 
   return (
     <div className={styles.dropdownlist__wrapper}>
       <div className={styles.dropdownlist__search}>
-        <SearchInput />
+        <SearchInput searchValue={searchValue} handleChange={handleSearch} />
       </div>
       <ul>
         {

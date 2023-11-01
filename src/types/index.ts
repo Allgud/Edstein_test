@@ -17,6 +17,11 @@ export type CheckboxProps = {
   value: string
 }
 
+export type SearchInputProps = {
+  searchValue: string,
+  handleChange: (arg1: string) => void
+}
+
 export type ProviderProps = {
   children: ReactNode
 }
@@ -31,6 +36,9 @@ export interface IOption {
 
 export interface IContext {
   options: IOption[],
+  searchValue: string
   handleChange: (arg1: string) => void,
-  handleRemove: (arg1: string) => void
+  handleRemove: (arg1: string) => void,
+  handleSearch: (arg1: string) => void,
+  clearSearch: () => void
 }
