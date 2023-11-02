@@ -11,7 +11,7 @@ const Checkbox = ({
   value,
   checked,
   onChange,
-  multiple,
+  multiple
 }: CheckboxProps) => {
   return (
     <label htmlFor={id} className={styles.checkbox__label}>
@@ -30,7 +30,7 @@ const Checkbox = ({
         id={id}
         value={value}
         checked={checked}
-        onChange={(evt) => onChange(evt.target.value, multiple)}
+        onChange={() => onChange(value, multiple)}
       />
     </label>
   );

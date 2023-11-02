@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, SyntheticEvent } from "react";
 import { IOption, IContext, ProviderProps } from "../types";
 import { LANGUAGES_OPTIONS } from "../constants";
 
@@ -8,10 +8,14 @@ export const DropdownContext = createContext<IContext>({} as IContext);
 const DropdownProvider = ({ children }: ProviderProps) => {
   const [options, setOptions] = useState<IOption[]>(LANGUAGES_OPTIONS);
   const [renderOptions, setRenderOptions] = useState<IOption[]>(options);
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [selectedOptions, setSelectedOptions] = useState<IOption[]>([])
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     setRenderOptions(options);
+
+    const selected = options.filter(option => Boolean(option.checked))
+    setSelectedOptions(selected)
   }, [options]);
 
   const handleChange = (val: string, bool: boolean) => {
@@ -37,7 +41,8 @@ const DropdownProvider = ({ children }: ProviderProps) => {
     }
   };
 
-  const handleRemove = (val: string) => {
+  const handleRemove = (evt: SyntheticEvent, val: string) => {
+    evt.stopPropagation()
     const newOptions = options.map((option) =>
       option.title === val ? { ...option, checked: false } : option,
     );
@@ -46,7 +51,7 @@ const DropdownProvider = ({ children }: ProviderProps) => {
 
   const handleSearch = (val: string) => {
     setSearchValue(val.trim());
-    if (val === "") {
+    if (!val) {
       setRenderOptions(options);
       return;
     }
@@ -57,6 +62,11 @@ const DropdownProvider = ({ children }: ProviderProps) => {
     setRenderOptions(filteredOptions);
   };
 
+  const clearSelectedList = () => {
+    setSelectedOptions([])
+    setOptions(LANGUAGES_OPTIONS)
+  }
+
   const value = {
     options,
     renderOptions,
@@ -64,6 +74,8 @@ const DropdownProvider = ({ children }: ProviderProps) => {
     handleRemove,
     searchValue,
     handleSearch,
+    selectedOptions,
+    clearSelectedList
   };
 
   return (

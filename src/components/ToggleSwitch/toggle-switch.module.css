@@ -19,9 +19,9 @@
   width: 24px;
   position: absolute;
   cursor: pointer;
-  top: 3px;
+  top: 2.5px;
   left: -28px;
-  bottom: -3px;
+  bottom: -2.5px;
   background-color: var(--black-100);
   transition: 0.3s;
   border-radius: 10px;
@@ -40,10 +40,10 @@
   background-color: var(--other-white);
 }
 
-.switch__input:checked + .switch__slider {
+.switch__input:checked+.switch__slider {
   background-color: var(--edstein-primary-500);
 }
 
-.switch__input:checked + .switch__slider::before {
+.switch__input:checked+.switch__slider::before {
   transform: translate(9px, -6px);
 }

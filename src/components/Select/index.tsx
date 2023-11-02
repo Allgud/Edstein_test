@@ -9,25 +9,24 @@ import cn from "classnames/bind";
 const cnBind = cn.bind(styles);
 
 const Select = ({ open, openHandler }: SelectProps) => {
-  const { options, handleRemove } = useDropdownContext();
+  const { selectedOptions, handleRemove } = useDropdownContext();
 
   return (
-    <div className={styles.select__wrapper}>
+    <div className={styles.select__wrapper} onClick={() => openHandler(!open)}>
       <ul className={styles.selected__list}>
-        {options
-          .filter((el) => Boolean(el.checked))
-          .map((option) => (
-            <SelectedItem
-              key={option.id}
-              text={option.title}
-              onRemoveClick={handleRemove}
-            />
-          ))}
+        {
+          !selectedOptions.length
+          && <span className={styles.select__placeholder}>Выберите язык</span>
+        }
+        {selectedOptions.map((option) => (
+          <SelectedItem
+            key={option.id}
+            text={option.title}
+            onRemoveClick={handleRemove}
+          />
+        ))}
       </ul>
-      <Arrow
-        className={cnBind(styles.arrow__icon, { arrow__icon_rotated: open })}
-        onClick={() => openHandler(!open)}
-      />
+      <Arrow className={cnBind(styles.arrow__icon, { arrow__icon_rotated: open })} />
     </div>
   );
 };

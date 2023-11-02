@@ -1,13 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as React from "react";
+import { useEffect } from 'react'
 import Select from "../Select/index";
 import { useDropdown } from "../../hooks/useDropdown";
 import styles from "./dropdown.module.css";
 import DropdownList from "../DropdownList/index";
 import ToggleSwitch from "../ToggleSwitch/index";
+import { useDropdownContext } from "../../hooks/useDropdownContext";
 
 const Dropdown = () => {
+  const { clearSelectedList } = useDropdownContext()
   const { isOpen, handleOpen, isMultiple, withFlags, handleSwitch } =
     useDropdown();
+
+  useEffect(() => {
+    clearSelectedList()
+  }, [isMultiple])
 
   return (
     <div className={styles.dropdown__wrapper}>

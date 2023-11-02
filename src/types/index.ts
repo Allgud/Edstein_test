@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, SyntheticEvent } from "react";
 
 export type SelectProps = {
   open: boolean;
@@ -7,15 +7,15 @@ export type SelectProps = {
 
 export type SelectedItemProps = {
   text: string;
-  onRemoveClick: (arg1: string) => void;
+  onRemoveClick: (evt: SyntheticEvent, val: string) => void;
 };
 
 export type CheckboxProps = {
   id: string;
   checked: boolean;
-  onChange: (arg1: string) => void;
   value: string;
-  multiple: boolean;
+  onChange: (val: string, bool: boolean) => void,
+  multiple: boolean
 };
 
 export type ToggleSwitchProps = {
@@ -46,15 +46,19 @@ export interface IOption {
   value: string;
   checked: boolean;
   flag_icon: string;
-  multiple: boolean;
+}
+
+export interface IOptionProps extends IOption {
+  multiple: boolean
 }
 
 export interface IContext {
   options: IOption[];
   renderOptions: IOption[];
+  selectedOptions: IOption[];
   searchValue: string;
-  handleChange: (arg1: string) => void;
-  handleRemove: (arg1: string) => void;
+  handleChange: (arg1: string, bool: boolean) => void;
+  handleRemove: (evt: SyntheticEvent, val: string) => void;
   handleSearch: (arg1: string) => void;
-  clearSearch: () => void;
+  clearSelectedList: () => void
 }
