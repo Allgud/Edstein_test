@@ -11,6 +11,7 @@
 .selected__list {
   display: flex;
   gap: 5px;
+  flex-wrap: wrap;
 }
 
 .arrow__icon {

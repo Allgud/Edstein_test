@@ -10,6 +10,17 @@
   gap: 4px;
 }
 
+.top__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__switches {
+  display: flex;
+  gap: 40px;
+}
+
 .top__title {
   font-size: 14px;
   font-weight: 500;

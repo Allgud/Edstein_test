@@ -1,11 +1,17 @@
-import React from "react";
+import * as React from "react";
 import { useDropdownContext } from "../../hooks/useDropdownContext";
 import { IOption } from "../../types";
 import Checkbox from "../Checkbox/index";
 import styles from "./dropdown-option.module.css";
 
-const DropdownOption = ({ title, flag_icon, value, checked }: IOption) => {
-  const { handleChange } = useDropdownContext()
+const DropdownOption = ({
+  title,
+  flag_icon,
+  value,
+  checked,
+  multiple,
+}: IOption) => {
+  const { handleChange } = useDropdownContext();
 
   return (
     <li className={styles.option__wrapper}>
@@ -14,9 +20,14 @@ const DropdownOption = ({ title, flag_icon, value, checked }: IOption) => {
         <span className={styles.left__text}>{title}</span>
       </div>
       <div className={styles.option__right}>
-        <Checkbox value={value} id={value} checked={checked} onChange={handleChange} />
+        <Checkbox
+          value={value}
+          id={value}
+          checked={checked}
+          onChange={handleChange}
+          multiple={multiple}
+        />
       </div>
-
     </li>
   );
 };
